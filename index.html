@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Germinagram</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="index.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <img class="logo" src="logo.svg" alt="" />
+    <div class="container-botoes">
+      <span class="login" onclick="AbrirModalLogin()">Log in</span> 
+      <span class="signup" onclick="AbrirModalCadastro()">Sign up </span>
+    </div>
+  </header>
+  <main>
+    <a class="postadd"><img class="plus" src="plus.svg" alt="" /></a>
+    <section class="secao-posts">
+      <!-- <article class="post">
+          <div class="post-info">
+            <div class="usuario-info">
+              <div class="avatar"></div>
+              <div class="nome-hora">
+                <p class="nome">Joana da Silva Peixoto</p>
+                <p class="hora">00 horas atrás</p>
+              </div>
+            </div>
+            <p class="comentario">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius
+              veritatis ratione sit eveniet magni, velit omnis quo quis
+              temporibus eaque architecto quos ex aliquam iure, adipisci
+              praesentium quidem, quia voluptate.
+            </p>
+          </div>  
+          <img class="post-imagem" src="pordosol.jpg" alt="" />
+          <div class="post-interacoes">
+            <div class="container-like">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#888" class="w-6 h-6" id="like">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z" />
+</svg>
+              <p class="descricao-like">Curtir</p>
+            </div>
+            <div class="container-coment">
+              <img class="coment-btn" src="comentario.svg" alt="like" />
+              <p class="descricao-comentario">Comentários</p>
+            </div>
+          </div>
+        </article> -->
+    </section>
+  </main>
+
+
+
+
+  <!-- MODAL CRIAR POST -->
+
+  <aside class="post-modal" style="width: 100%;">
+
+    <form class="form-post" action="#" enctype="multipart/form-data" method="POST">
+
+      <textarea name="comentario" class="comentario-form"
+        placeholder="Digite um comentário de até 200 palavras" maxlength="200" required></textarea>
+
+      <div class="container-imagem">
+
+        <img src="" alt="" id="preview-img" width="450px" height="300px">
+        
+      </div>
+
+        <input accept="image/*" type="file" name="campo-foto" id="campo-foto" required/>
+
+      <div>
+        <input class="postar" type="submit" value="Postar" onclick="funpostar()"/>
+        <a href="#">
+          <button class="postar" id="fecharJanela"  onclick="sair_modal()">
+            Fechar Janela
+          </button>
+        </a>
+      </div>
+
+    </form>
+
+  </aside>
+
+
+
+  
+
+  <!-- MODAL CADASTRO -->
+
+  <aside id="Cadastro">
+    <div class="container">
+      <div class="form" id="form1">
+          <form action="" id="formularioContainer" method="post">
+              <div class="form-header">
+                  <div class="title">
+                      <h1>Cadastre-se</h1>
+                  </div>
+                  <div class="login-button">
+                      <button id="ctaEntrar" onclick="AbrirModalLogin()">Entrar</button>
+                  </div>
+              </div>
+
+              <div class="input-group">
+                  <div class="input-box">
+                      <label for="nomeCompleto">Nome completo*</label>
+                      <input id="nomeCompleto" type="text" name="nomeCompleto" placeholder="Digite seu nome completo" required>
+                  </div>
+
+                  <div class="input-box">
+                      <label for="Username">Username*</label>
+                      <input id="Username" type="text" name="Username" placeholder="Digite seu nome de usuario" required>
+                  </div>
+                  <div class="input-box">
+                      <label for="email">E-mail*</label>
+                      <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+                  </div>
+
+                  <div class="input-box">
+                      <label for="number">Celular*</label>
+                      <input id="number" type="tel" name="number" placeholder="(xx) xxxx-xxxxx" required minlength="10" maxlength="15" pattern="/^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/">
+                  </div>
+
+                  <div class="input-box">
+                      <label for="password">Senha*</label>
+                      <input id="password" type="text" name="password" placeholder="Digite sua senha" required pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{8,50}$).*$">
+                  </div>
+
+                  <div class="input-box">
+                      <label for="confirmPassword">Confirme sua Senha*</label>
+                      <input id="confirmPassword" type="text" name="confirmPassword" placeholder="Digite sua senha novamente" required>
+                  </div>
+
+                  <div id="info">
+                      <div class="feed">Número de caracteres: Mínimo 8</div>
+                      <div class="feed">Letras Maiúsculas: ABC</div>
+                      <div class="feed">Números: Entre 0 a 9</div>
+                      <div class="feed">Caracteres Especiais: @#$</div>
+                  </div>
+
+              </div>
+
+              <div>
+                <input class="postar" type="submit" value="Continuar" id="cta-confirmar" style="padding: 1rem 2rem;"/>
+                <a href="#">
+                  <button class="postar" onclick="AbrirModalCadastro()">
+                    Fechar Janela
+                  </button>
+                </a>
+              </div>
+
+          </form>
+      </div>
+  </div>
+  </aside>
+
+
+  <!-- MODAL LOGIN -->
+
+  <aside id="Login">
+    <div class="container" style="width: 50%;">
+      <div class="form">
+          <form action="#">
+              <div class="form-header">
+                  <div class="title">
+                      <h1>Login</h1>
+                  </div>
+                  <div class="login-button">
+                    <button id="ctaEntrar" onclick="AbrirModalLogin()">Entrar</button>
+                </div>
+              </div>
+
+              <div class="input-group">
+
+                  <div class="input-box">
+                      <label for="username">Usename*</label>
+                      <input id="username" type="text" name="username" placeholder="Digite seu nome de usuário" required>
+                  </div>
+                  <div class="input-box">
+                      <label for="email">E-mail*</label>
+                      <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+                  </div>
+                  
+                  <div class="input-box">
+                      <label for="password">Senha*</label>
+                      <input id="password" type="password" name="password" placeholder="Digite sua senha" required>
+                  </div>
+
+
+                  <div class="input-box">
+                      <label for="confirmPassword">Confirme sua Senha*</label>
+                      <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Digite sua senha novamente" required>
+                  </div>
+
+                  <div class="input-box" style="width: 100%;">
+                      <label for="">
+                          Adicione uma foto para seu perfil*
+                          <input type="file" name="fotoCadastrada" id="fotoPerfil" style="padding: 3vw 12vw;" required>
+                      </label>
+                  </div>
+
+              </div>
+
+              <div>
+                <input class="postar" type="submit" value="Continuar" id="cta-confirmar" style="padding: 1rem 2rem;"/>
+                <a href="#">
+                  <button class="postar" onclick="AbrirModalLogin()">
+                    Fechar Janela
+                  </button>
+                </a>
+              </div>
+
+          </form>
+      </div>
+  </div>
+  </aside>
+  
+</body>
+
+</html>
